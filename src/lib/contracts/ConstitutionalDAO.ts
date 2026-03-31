@@ -1,6 +1,6 @@
 import { createClient } from "genlayer-js";
 import { studionet } from "genlayer-js/chains";
-import { CONTRACT_ADDRESS } from "./client";
+import { CONTRACT_ADDRESS } from "@/lib/genlayer/client";
 
 export interface Proposal {
   id: string;

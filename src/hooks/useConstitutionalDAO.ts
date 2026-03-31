@@ -1,8 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
-import ConstitutionalDAOContract from "../contracts/ConstitutionalDAO";
-import { useWallet } from "../genlayer/WalletProvider";
-import type { Proposal, ProposalSummary } from "../contracts/ConstitutionalDAO";
+import ConstitutionalDAOContract from "@/lib/contracts/ConstitutionalDAO";
+import { useWallet } from "@/lib/genlayer/WalletProvider";
+import type { Proposal, ProposalSummary } from "@/lib/contracts/ConstitutionalDAO";
 import { toast } from "sonner";
 
 export function useDAOContract(): ConstitutionalDAOContract {
