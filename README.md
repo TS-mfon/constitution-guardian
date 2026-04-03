@@ -133,62 +133,6 @@ Title: "grant" → SUCCESS (5 chars)
 | `new_text` | **50 chars** | **10,000 chars** | Full constitution document |
 | `reason` | **1 char** | **500 chars** | "Adaptive governance model" |
 
-**Common Error:**
-```
-new_text: "the dao should run based on market conditions"
-          → ERROR (only 44 chars, need 50+)
-          
-new_text: "The DAO should run based on market conditions and adapt to changing market dynamics."
-          → SUCCESS (86 chars)
-```
-
-### Frontend Validation Example
-
-```javascript
-// Title validation
-const validateTitle = (title) => {
-  if (title.length < 5) {
-    return "Title must be at least 5 characters"
-  }
-  if (title.length > 200) {
-    return "Title cannot exceed 200 characters"
-  }
-  return null // Valid
-}
-
-// Description validation
-const validateDescription = (desc) => {
-  if (desc.length < 20) {
-    return "Description must be at least 20 characters"
-  }
-  return null // Valid
-}
-
-// Constitution validation
-const validateConstitution = (text) => {
-  if (text.length < 50) {
-    return "Constitution must be at least 50 characters"
-  }
-  if (text.length > 10000) {
-    return "Constitution cannot exceed 10,000 characters"
-  }
-  return null // Valid
-}
-```
-
-### Live Character Counter UI
-
-```javascript
-// Show real-time character count
- setTitle(e.target.value)}
-/>
-
-  {title.length}/200 characters {title.length < 5 && "(minimum 5)"}
-
-```
-
----
-
 ## 🤖 AI Validator Profiles (Internal to Consensus Logic)
 
 Each validator independently:
