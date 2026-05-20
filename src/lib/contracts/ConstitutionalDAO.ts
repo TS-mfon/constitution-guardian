@@ -90,7 +90,7 @@ class ConstitutionalDAOContract {
 
   private async waitForAccepted(hash: `0x${string}`) {
     return this.client.waitForTransactionReceipt({
-      hash,
+      hash: hash as never,
       status: "ACCEPTED" as never,
       retries: 48,
       interval: 5000,
