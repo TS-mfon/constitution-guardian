@@ -12,7 +12,9 @@ export const GENLAYER_NETWORK = {
   blockExplorerUrls: [],
 };
 
-export const CONTRACT_ADDRESS = "0x8FEDd245572a58f4fBDc2B361a7c190Ceb73dbb5";
+export const CONTRACT_ADDRESS =
+  (import.meta.env.VITE_CONSTITUTIONAL_DAO_ADDRESS as string | undefined) ||
+  "0x8FEDd245572a58f4fBDc2B361a7c190Ceb73dbb5";
 
 interface EthereumProvider {
   isMetaMask?: boolean;

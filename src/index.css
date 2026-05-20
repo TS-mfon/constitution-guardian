@@ -1,145 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    /* Constitutional DAO — Dark judicial theme */
-    --background: 220 20% 4%;
-    --foreground: 45 10% 90%;
-
-    --card: 220 18% 8%;
-    --card-foreground: 45 10% 90%;
-
-    --popover: 220 18% 8%;
-    --popover-foreground: 45 10% 90%;
-
-    /* Gold accent — authority, law */
-    --primary: 42 78% 55%;
-    --primary-foreground: 220 20% 4%;
-
-    --secondary: 220 15% 14%;
-    --secondary-foreground: 45 10% 85%;
-
-    --muted: 220 15% 12%;
-    --muted-foreground: 220 10% 50%;
-
-    --accent: 42 78% 55%;
-    --accent-foreground: 220 20% 4%;
-
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 220 15% 16%;
-    --input: 220 15% 14%;
-    --ring: 42 78% 55%;
-
-    --radius: 0.5rem;
-
-    /* Constitutional status colors */
-    --constitutional: 142 72% 42%;
-    --constitutional-foreground: 0 0% 100%;
-    --blocked: 0 72% 51%;
-    --blocked-foreground: 0 0% 100%;
-    --pending: 42 78% 55%;
-    --pending-foreground: 220 20% 4%;
-
-    /* Sidebar */
-    --sidebar-background: 220 18% 6%;
-    --sidebar-foreground: 45 10% 85%;
-    --sidebar-primary: 42 78% 55%;
-    --sidebar-primary-foreground: 220 20% 4%;
-    --sidebar-accent: 220 15% 12%;
-    --sidebar-accent-foreground: 45 10% 85%;
-    --sidebar-border: 220 15% 14%;
-    --sidebar-ring: 42 78% 55%;
-
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --background: 48 22% 94%;
+    --foreground: 210 18% 12%;
+    --card: 45 25% 98%;
+    --card-foreground: 210 18% 12%;
+    --popover: 45 25% 98%;
+    --popover-foreground: 210 18% 12%;
+    --primary: 8 70% 56%;
+    --primary-foreground: 48 22% 94%;
+    --secondary: 40 18% 88%;
+    --secondary-foreground: 210 18% 12%;
+    --muted: 40 16% 86%;
+    --muted-foreground: 210 10% 40%;
+    --accent: 8 70% 56%;
+    --accent-foreground: 48 22% 94%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 18% 12%;
+    --input: 40 16% 86%;
+    --ring: 8 70% 56%;
+    --radius: 1rem;
+    --sidebar-background: 48 22% 94%;
+    --sidebar-foreground: 210 18% 12%;
+    --sidebar-primary: 8 70% 56%;
+    --sidebar-primary-foreground: 48 22% 94%;
+    --sidebar-accent: 40 18% 88%;
+    --sidebar-accent-foreground: 210 18% 12%;
+    --sidebar-border: 210 18% 12%;
+    --sidebar-ring: 8 70% 56%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-body);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  html {
+    scroll-behavior: smooth;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.02em;
+  body {
+    @apply bg-background text-foreground;
+    font-family: "IBM Plex Sans", sans-serif;
+    background-image:
+      radial-gradient(circle at top left, rgba(217, 83, 79, 0.15), transparent 32%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 28%),
+      linear-gradient(135deg, rgba(26, 26, 29, 0.08) 0, transparent 40%);
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Archivo Expanded", sans-serif;
+    letter-spacing: -0.04em;
+  }
+}
+
+@layer components {
+  .editorial-panel {
+    @apply rounded-[2rem] border border-foreground/90 bg-card p-6 shadow-[10px_10px_0px_rgba(26,26,29,0.12)];
+  }
+
+  .editorial-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-foreground px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.25em];
+  }
+
+  .signal-line {
+    background-image: linear-gradient(90deg, transparent 0, hsl(var(--foreground)) 10%, transparent 100%);
+    height: 1px;
+  }
+
+  .stage-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: var(--font-display);
-  }
-
-  .font-body {
-    font-family: var(--font-body);
-  }
-}
-
-@layer components {
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .gradient-gold {
-    background: linear-gradient(135deg, hsl(42, 78%, 55%) 0%, hsl(32, 85%, 45%) 100%);
-  }
-
-  .gradient-gold-text {
-    background: linear-gradient(135deg, hsl(42, 78%, 60%) 0%, hsl(32, 85%, 50%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .brand-card {
-    @apply bg-card border border-border rounded-lg;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
-    transition: all 0.3s ease;
-  }
-
-  .brand-card:hover {
-    border-color: hsl(42, 78%, 55%, 0.3);
-    box-shadow: 0 8px 16px -4px rgb(0 0 0 / 0.4);
-  }
-
-  .status-constitutional {
-    @apply bg-[hsl(var(--constitutional))] text-[hsl(var(--constitutional-foreground))];
-  }
-
-  .status-blocked {
-    @apply bg-[hsl(var(--blocked))] text-[hsl(var(--blocked-foreground))];
-  }
-
-  .status-pending {
-    @apply bg-[hsl(var(--pending))] text-[hsl(var(--pending-foreground))];
+    font-family: "Archivo Expanded", sans-serif;
   }
 }

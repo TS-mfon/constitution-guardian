@@ -8,7 +8,8 @@ import ConstitutionPage from "@/pages/ConstitutionPage";
 import ProposalsPage from "@/pages/ProposalsPage";
 import SubmitProposalPage from "@/pages/SubmitProposalPage";
 import ProposalDetailPage from "@/pages/ProposalDetailPage";
-import StatsPage from "@/pages/StatsPage";
+import ChambersPage from "@/pages/ChambersPage";
+import StandardsPage from "@/pages/StandardsPage";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient({
@@ -27,14 +28,15 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Navbar />
-          <main className="pt-20 pb-12 px-4 md:px-6 lg:px-8">
-            <div className="container mx-auto max-w-5xl">
+          <main className="pt-24 pb-12 px-4 md:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl">
               <Routes>
                 <Route path="/" element={<ConstitutionPage />} />
+                <Route path="/chambers" element={<ChambersPage />} />
+                <Route path="/standards" element={<StandardsPage />} />
                 <Route path="/proposals" element={<ProposalsPage />} />
                 <Route path="/submit" element={<SubmitProposalPage />} />
                 <Route path="/proposal/:id" element={<ProposalDetailPage />} />
-                <Route path="/stats" element={<StatsPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
