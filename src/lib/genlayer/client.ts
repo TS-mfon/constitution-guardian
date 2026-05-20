@@ -14,7 +14,7 @@ export const GENLAYER_NETWORK = {
 
 export const CONTRACT_ADDRESS =
   (import.meta.env.VITE_CONSTITUTIONAL_DAO_ADDRESS as string | undefined) ||
-  "0x8FEDd245572a58f4fBDc2B361a7c190Ceb73dbb5";
+  "0x4e49AFa36Cf34701FDbBBD39842c8a8bcacEafbB";
 
 interface EthereumProvider {
   isMetaMask?: boolean;
