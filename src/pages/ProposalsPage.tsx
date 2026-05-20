@@ -49,7 +49,7 @@ export default function ProposalsPage() {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{proposal.assigned_chamber.replace("_", " ")}</p>
+                <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{(proposal.assigned_chamber ?? "unassigned").replace(/_/g, " ")}</p>
                 <h2 className="mt-3 text-xl">{proposal.title}</h2>
               </div>
               <div className="editorial-chip">{proposal.status}</div>
